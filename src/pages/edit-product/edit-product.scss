@@ -1,0 +1,26 @@
+page-edit-product {
+    .imageButton {
+        background: #999999;
+        background-image: -webkit-linear-gradient(top, #999999, #8f8f8f);
+        background-image: -moz-linear-gradient(top, #999999, #8f8f8f);
+        background-image: -ms-linear-gradient(top, #999999, #8f8f8f);
+        background-image: -o-linear-gradient(top, #999999, #8f8f8f);
+        background-image: linear-gradient(to bottom, #999999, #8f8f8f);
+        font-family: Arial;
+        color: #ffffff;
+        font-size: 12px;
+        border: solid #c6cdd1 2px;
+        text-decoration: none;
+        margin-left: 8pt;
+      }
+      
+      .imageButton:hover {
+        background: #bfbca4;
+        background-image: -webkit-linear-gradient(top, #bfbca4, #9e9a88);
+        background-image: -moz-linear-gradient(top, #bfbca4, #9e9a88);
+        background-image: -ms-linear-gradient(top, #bfbca4, #9e9a88);
+        background-image: -o-linear-gradient(top, #bfbca4, #9e9a88);
+        background-image: linear-gradient(to bottom, #bfbca4, #9e9a88);
+        text-decoration: none;
+      }
+}

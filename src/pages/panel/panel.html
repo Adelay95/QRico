@@ -1,0 +1,31 @@
+<ion-header>
+
+</ion-header>
+
+<ion-content padding class="fondo">
+<div class="content">
+<div class="image" align= "center">
+  <img src="assets/img/qrico.png">
+</div>
+
+<br>
+<div align = "center">
+  <b>{{variable.nameRestaurant}}</b>
+</div>
+<div class="buttons">
+
+  
+          <button ion-button class="buttonComandasCocina" (click)="goToCocina()">Cocina</button>
+
+          <button ion-button class="buttonComandasBarra" (click)="goToBebidas()">Bebidas</button>
+
+          <button ion-button class="buttonComandasBarra"  (click)="goToBarra()">Cuentas mesas</button>
+
+          <button ion-button class="buttonComandasBarra"  (click)="goToAddProduct()">Añadir Producto</button>
+
+          <button ion-button class="buttonComandasBarra"  (click)="goToListCategory()">Ver menú</button> 
+</div>
+</div>   
+
+</ion-content>
+

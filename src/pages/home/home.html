@@ -1,0 +1,21 @@
+<ion-header>
+
+</ion-header>
+
+<ion-content padding class="fondo">
+<div class="content">
+<div class="image" align= "center">
+  <img src="assets/img/qrico.png">
+</div>
+<div class="buttons">
+          <button ion-button class="buttonLogin" (click)="goToLogin()">Login</button>
+     
+         
+          <button showWhen="android,ios" ion-button class="buttonQRReader" large full strong (click)="goToMenu()">QR reader</button>
+</div>
+</div>  
+<div class="manual">
+  <button ion-button (click)="goToManual()"> <ion-icon name="information-circle" class="ico"></ion-icon></button>
+</div> 
+
+</ion-content>

@@ -1,0 +1,52 @@
+<!--
+  Generated template for the TicketPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-navbar>
+      <ion-title><img src="assets/img/qrico.png" height="36" width="46">Ticket Mesa   {{ restaurant.tablenumber }}</ion-title>
+    </ion-navbar>
+  
+  </ion-header>
+  
+  
+  <ion-content padding class="fondo">
+    <ion-list>
+      <ion-card *ngFor="let pedido of pedidos">
+          <ion-card-content>
+              <ion-icon *ngIf=" pedido.state == 0" name="time" class="ico"></ion-icon>
+              <ion-icon *ngIf=" pedido.state == 1 "name="md-thumbs-up" class="ico"></ion-icon>
+              <ion-icon *ngIf=" pedido.state == 2" name="card" class="ico"></ion-icon>
+              <p class="pedido"></p>
+              <p class="pedido" *ngIf=" pedido.productquantity == 0" >{{ pedido.name }} - Tapa </p>
+              <p class="pedido" *ngIf=" pedido.productquantity == 1" >{{ pedido.name }} - 1/2 ración </p>
+              <p class="pedido" *ngIf=" pedido.productquantity == 2" >{{ pedido.name }} - Ración </p>
+              <p class="pedido" *ngIf=" pedido.productquantity == 3" >{{ pedido.name }} - Bebida </p>
+            <ion-grid>
+                <ion-row>
+                  <ion-col col-5>
+                      <b class="price">{{ pedido.price }} €</b>
+                  </ion-col>
+                  <ion-col>  
+                      <p class="quantity">x {{ pedido.quantity }}</p>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+          </ion-card-content>
+        </ion-card>
+      </ion-list>
+  </ion-content>
+  <ion-footer>
+    <ion-toolbar>
+        <b *ngIf="ordered.total!=''" class="total">Total: {{ ordered.total }} €</b>
+        <b *ngIf="ordered.total==''" class="total">Total: 0 €</b>
+        <ion-buttons end>
+          <button *ngIf="ordered.total!=''" ion-button icon-right (click)="pay()">
+              <img src="assets/icon/paypal.png" height="36" width="36">      Pagar
+          </button>
+        </ion-buttons>
+    </ion-toolbar>
+  </ion-footer>

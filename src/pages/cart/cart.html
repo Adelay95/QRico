@@ -1,0 +1,75 @@
+<!--
+  Generated template for the CartPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+      <ion-title ><img src="assets/img/qrico.png" height="36" width="46"> {{ category.name }}</ion-title>
+      <ion-buttons end>
+        <button ion-button (click)="goToTicket()"> <ion-icon name="clipboard" class="ico"></ion-icon>({{ getCantidadTicket() }})</button>
+        <button ion-button (click)="goToBasket()"> <ion-icon name="cart" class="ico"></ion-icon> ({{ getCantidadCarrito() }})</button>
+    </ion-buttons>
+  </ion-navbar>
+  
+  </ion-header>
+  
+  <ion-content padding class="fondo">
+    <!--
+      <ion-list>
+          <button ion-item *ngFor="let product of products">
+           <b>{{ product.name }}</b> 
+          </button>
+        </ion-list>
+-->
+      <ion-list>
+        <ion-card *ngFor="let product of products">
+            <img src="{{ product.image }}"/>
+            <ion-card-content>
+                <p class="product"></p>
+                <p class="product" *ngIf=" product.productquantity == -1" >{{ product.name }} </p>
+                <p class="product" *ngIf=" product.productquantity == 0" >{{ product.name }} - Tapa </p>
+                <p class="product" *ngIf=" product.productquantity == 1" >{{ product.name }} - 1/2 ración </p>
+                <p class="product" *ngIf=" product.productquantity == 2" >{{ product.name }} - Ración </p>
+                <p class="product" *ngIf=" product.productquantity == 3" >{{ product.name }} - Bebida </p>
+                <div>
+                  <img src="assets/img/Altramuces.png" *ngIf="product.allergens.substring(0,1)=='1'" class="allergens">
+                  <img src="assets/img/Apio.png" *ngIf="product.allergens.substring(1,2)=='1'" class="allergens">
+                  <img src="assets/img/Azufre.png" *ngIf="product.allergens.substring(2,3)=='1'" class="allergens">
+                  <img src="assets/img/Cacahuete.png" *ngIf="product.allergens.substring(3,4)=='1'" class="allergens">
+                  <img src="assets/img/Crustaceos.png" *ngIf="product.allergens.substring(4,5)=='1'" class="allergens">
+                  <img src="assets/img/FrutosSecos.png" *ngIf="product.allergens.substring(5,6)=='1'" class="allergens">
+                  <img src="assets/img/Gluten.png" *ngIf="product.allergens.substring(6,7)=='1'" class="allergens">
+                  <img src="assets/img/Huevo.png" *ngIf="product.allergens.substring(7,8)=='1'" class="allergens">
+                  <img src="assets/img/Lacteos.png" *ngIf="product.allergens.substring(8,9)=='1'" class="allergens">
+                  <img src="assets/img/Mariscos.png" *ngIf="product.allergens.substring(9,10)=='1'" class="allergens">
+                  <img src="assets/img/Mostaza.png" *ngIf="product.allergens.substring(10,11)=='1'" class="allergens">
+                  <img src="assets/img/Pescado.png" *ngIf="product.allergens.substring(11,12)=='1'" class="allergens">
+                  <img src="assets/img/Sesamo.png" *ngIf="product.allergens.substring(12,13)=='1'" class="allergens">
+                  <img src="assets/img/Soja.png" *ngIf="product.allergens.substring(13,14)=='1'" class="allergens">
+                </div>
+              <ion-grid>
+                  <ion-row>
+                    <ion-col col-5>
+                        <b class="price">{{ product.price }} €</b>
+                    </ion-col>
+                    <ion-col >  <button ion-button small icon-only (click)="removeProduct(product)">
+                        <ion-icon name="remove"></ion-icon></button>
+                    </ion-col>
+                    <ion-col >  
+
+                        <p *ngIf=" !checkProdudct(product)" class="quantity" >0</p>
+                        <p *ngIf=" checkProdudct(product)" class="quantity">{{ getQuantity(product) }}</p>
+                    </ion-col>
+                    <ion-col >  <button ion-button small icon-only (click)="addProduct(product)">
+                        <ion-icon name="add"></ion-icon></button>
+                    </ion-col>
+                  </ion-row>
+                </ion-grid>
+            </ion-card-content>
+          </ion-card>
+        </ion-list>
+  </ion-content>
+  

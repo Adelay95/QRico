@@ -1,0 +1,85 @@
+<!--
+  Generated template for the AddProductPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title ><img src="assets/img/qrico.png" height="36" width="46"> Añadir producto </ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding class="fondo">
+  <form [formGroup]="formulario" (ngSubmit)="saveData()">
+    <ion-list>
+      <ion-item>
+        <ion-icon name="pizza" item-start></ion-icon>
+        <ion-label stacked>Nombre:</ion-label>
+        <ion-input formControlName="name" type="text"></ion-input>
+      </ion-item>
+      <ion-item>
+          <ion-icon name="cash" item-start></ion-icon>
+          <ion-label stacked>Precio:</ion-label>
+          <ion-input formControlName="price" type="number" placeHolder="Ejemplo 2.56"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="!camara">
+          <ion-icon name="image" item-start></ion-icon>
+          <ion-label stacked>Imagen(url):</ion-label>
+          <ion-input formControlName="image" type="file" accept="image/*"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="camara">
+        <ion-icon name="image" item-start></ion-icon>
+        <ion-label stacked>Imagen: <button class="imageButton" type="button" ion-button (click)="subirImagen()">Añadir Imagen</button></ion-label>
+        <div item-content>
+          <img [src]="image" *ngIf="image" />
+        </div>
+        
+    </ion-item>
+      <ion-item>
+          <ion-label stacked>Categoría:</ion-label>
+          <ion-select formControlName="category">
+            <ion-option *ngFor="let item of categories" [value]="item.id" >{{item.name}}</ion-option>
+          </ion-select>
+      </ion-item>
+      <ion-item>
+          <ion-label stacked>Tamaño:</ion-label>
+          <ion-select formControlName="productQuantity">
+            <ion-option value="0">Tapa</ion-option>
+            <ion-option value="1">Media ración</ion-option>
+            <ion-option value="2">Ración</ion-option>
+            <ion-option value="3">Bebida</ion-option>
+          </ion-select>
+      </ion-item>
+      <ion-item >
+        <ion-icon name="nutrition" item-start></ion-icon>
+        <ion-label stacked>Alérgenos: </ion-label>
+            <ion-select multiple="true" formControlName="allergens">
+              <ion-option value="0"> Altramuces</ion-option>
+              <ion-option value="1"> Apio</ion-option>
+              <ion-option value="2"> Azufre</ion-option>
+              <ion-option value="3"> Cacahuete</ion-option>
+              <ion-option value="4"> Crustáceos</ion-option>
+              <ion-option value="5"> FrutosSecos</ion-option>
+              <ion-option value="6"> Gluten</ion-option>
+              <ion-option value="7"> Huevo</ion-option>
+              <ion-option value="8"> Lácteos</ion-option>
+              <ion-option value="9"> Mariscos</ion-option>
+              <ion-option value="10"> Mostaza</ion-option>
+              <ion-option value="11"> Pescado</ion-option>
+              <ion-option value="12"> Sésamo</ion-option>
+              <ion-option value="13"> Soja</ion-option>
+            </ion-select>
+        
+    </ion-item>
+    </ion-list>
+    <div padding class="fondo">
+      <button ion-button block type="submit" [disabled]="!formulario.valid">Guardar</button>
+    </div>
+
+  </form>
+ <!-- <p>{{ image }}</p>  -->
+</ion-content>
